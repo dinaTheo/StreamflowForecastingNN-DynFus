@@ -5,7 +5,7 @@ import pandas as pd
 import tempfile
 
 folder = 'Data/era-land/'
-final_folder = 'Data'
+final_folder = 'Data/Final-data/'
 files = sorted([f for f in os.listdir(folder) if f.endswith('.nc') or f.endswith('.zip')])
 df_list = []
 

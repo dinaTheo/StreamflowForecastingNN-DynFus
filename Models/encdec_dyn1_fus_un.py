@@ -11,7 +11,7 @@ from keras.callbacks import EarlyStopping
 from hydroeval import evaluator, nse, kge
 
 
-folder_with_data = 'Data'
+folder_with_data = 'Data/Final-data/'
 river_flow = pd.read_csv(folder_with_data + '/river-flow.csv')
 river_flow['dateTime'] = pd.to_datetime(river_flow['dateTime'], errors='raise')
 river_flow['dateTime'] = river_flow['dateTime'].dt.date
@@ -285,7 +285,7 @@ for run in range(n_runs):
 
     predictions_per_run.append(run_predictions)
     for i, model in enumerate(run_models):
-        model.save(f'Results/encdec-un-dyn1-fusion-run-{run}-station-{i}.h5')
+        model.save(f'Results/Saved-from-run-models/encdec-un-dyn1-fusion-run-{run}-station-{i}.h5')
 
 final_ensemble_predictions = []
 for station_idx in range(n_stations):
@@ -293,10 +293,10 @@ for station_idx in range(n_stations):
     station_ensemble = ensemble_predict(station_predictions_across_runs)
     final_ensemble_predictions.append(station_ensemble)
 
-np.save('Results/predictions-per-run-encdec-dyn1-fusion.npy', final_ensemble_predictions)
-np.save('Results/full-predictions-per-run-encdec-dyn1-fusion.npy', predictions_per_run)
-np.save('Results/durations-encdec-dyn1-fusion.npy', durations_per_run)
-np.save('Results/durations-for-predictions-encdec-dyn1-fusion.npy', durations_for_preds_per_run)
+np.save('Results/Saved-from-run-models/predictions-per-run-encdec-dyn1-fusion.npy', final_ensemble_predictions)
+np.save('Results/Saved-from-run-models/full-predictions-per-run-encdec-dyn1-fusion.npy', predictions_per_run)
+np.save('Results/Saved-from-run-models/durations-encdec-dyn1-fusion.npy', durations_per_run)
+np.save('Results/Saved-from-run-models/durations-for-predictions-encdec-dyn1-fusion.npy', durations_for_preds_per_run)
 
 scaler_modified = MinMaxScaler(feature_range=(0, 1))
 scaler_modified.feature_range = scaler.feature_range
@@ -386,7 +386,7 @@ durations_and_metrics_df = pd.DataFrame({
     'KGE': kge_per_run,
 })
 
-durations_and_metrics_df.to_csv('Results/durations-and-metrics-encdec-un-dyn1-fusion.csv')
+durations_and_metrics_df.to_csv('Results/Saved-from-run-models/durations-and-metrics-encdec-un-dyn1-fusion.csv')
 
 
 

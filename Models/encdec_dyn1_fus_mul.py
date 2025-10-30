@@ -11,7 +11,7 @@ from keras.callbacks import EarlyStopping
 from hydroeval import evaluator, nse, kge
 
 
-folder_with_data = 'Data'
+folder_with_data = 'Data/Final-data/'
 river_flow = pd.read_csv(folder_with_data + '/river-flow.csv')
 river_flow['dateTime'] = pd.to_datetime(river_flow['dateTime'], errors='raise')
 river_flow['dateTime'] = river_flow['dateTime'].dt.date
@@ -201,10 +201,10 @@ for i in range(n_runs):
     # print(prediction.shape)  
     # print(f"Prediction time: {duration2:.2f} seconds")
     durations_predictions.append(duration2)
-    model.save(f'Results/encdec-mul-dyn1-fusion-{i}.h5')
+    model.save(f'Results/Saved-from-run-models/encdec-mul-dyn1-fusion-{i}.h5')
     predictionstosave.append(prediction)
 
-np.save(f'Results/full-predictions-encdec-mul-dyn1-fusion.npy', predictionstosave)
+np.save(f'Results/Saved-from-run-models/full-predictions-encdec-mul-dyn1-fusion.npy', predictionstosave)
 
 scaler_modified = MinMaxScaler(feature_range=(0, 1))
 scaler_modified.min_ = scaler.min_[6:]
@@ -215,7 +215,7 @@ scaler_modified.data_range_ = scaler.data_range_[6:]
 scaler_modified.feature_range = scaler.feature_range
 
 predictions = ensemble_predict(models, [X1_test, X2_test,X3_test,X4_test,X5_test,X6_test,modality_1_test,modality_2_test,modality_3_test,modality_4_test,modality_5_test, modality_6_test])
-np.save(f'Results/predictions-encdec-mul-dyn1-fusion.npy', predictions)
+np.save(f'Results/Saved-from-run-models/predictions-encdec-mul-dyn1-fusion.npy', predictions)
 
 samples, horizon, stations = y_test.shape
 y_test2 = y_test.reshape(-1, stations)  
@@ -272,4 +272,4 @@ durations_and_metrics_df = pd.DataFrame({
     'KGE':  kge_per_run,            
 })
 
-durations_and_metrics_df.to_csv('Results/durations-and-metrics-encdec-mul-dyn1-fusion.csv')
+durations_and_metrics_df.to_csv('Results/Saved-from-run-models/durations-and-metrics-encdec-mul-dyn1-fusion.csv')

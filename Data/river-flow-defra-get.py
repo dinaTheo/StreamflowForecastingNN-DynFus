@@ -115,7 +115,7 @@ for id, guid in ids.items():
     hourly_data.to_csv(flow_csv_filename, index=False)
     print(f"Saved river flow data for {id} to {flow_csv_filename}")
 
-folder_with_data ='Data'
+folder_with_data ='Data/Final-data/'
 river_flow_combined = []
 river_flow_csvs = [f for f in os.listdir(folder_with_data) if f.endswith('river-flow.csv')]
 for file in river_flow_csvs:
