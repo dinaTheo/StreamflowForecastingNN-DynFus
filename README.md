@@ -5,8 +5,7 @@ This is the repository with the code for the LSTM-based dynamic feature fusion m
 
 The project follows this structure:
 
-`
-.
+```.
 ├── Data
 │   ├── Final-data
 │   ├── era-land-load.py
@@ -26,8 +25,7 @@ The project follows this structure:
 │  └── kernelshap_val_mul.py
 ├── README.md
 ├── LICENSE
-
-`
+```
 
 ## Stage 1: Data loading and preparing
 
@@ -35,7 +33,7 @@ The **Data** folder contains the `.py` scripts that load and prepare the ERA5-La
 
 ## Stage 2: Data preprocessing and model development
 
-The data coming from the previouss stage saved on **Data/Final-data/** is to be used as inputs to the models. All the models used can be found in the **Models/** folder (`.py` scripts). When the models in this folder are run, they are outputting the predictions on the **Results/Saved-from-run-models** folder. 
+The data coming from the previous stage saved on **Data/Final-data/** is to be used as inputs to the models. All the models used can be found in the **Models/** folder (`.py` scripts). When the models in this folder are run, they are outputting the predictions on the **Results/Saved-from-run-models** folder. 
 
 ## Stage 3: Results
 
