@@ -1,9 +1,11 @@
 # StreamflowForecastingNN-DynFus
 
-This is the repository with the code for an LSTM-based dynamic feature fusion model for streamflow forecasting.
+## Introduction
+This is the repository with the code for the LSTM-based dynamic feature fusion models for streamflow forecasting.
 
-The structure of the project is the following:
+The project follows this structure:
 
+'
 .
 ├── Data
 │   ├── Final-data
@@ -24,14 +26,21 @@ The structure of the project is the following:
 │  └── kernelshap_val_mul.py
 ├── README.md
 ├── LICENSE
+,
 
-The `Data` folder contains the .py scripts that load and prepare the ERA5-Land Data and the river flow measurements from DEFRA/NRFA. 
+## Stage 1: Data loading and preparing
 
-The final data from these scripts, if run, are to be saved on the `Data/Final-data/`folder. This data have been already provided, therefore there is no need to run the load scripts if one is in a rush.
+The `Data` folder contains the .py scripts that load and prepare the ERA5-Land Data and the river flow measurements from DEFRA/NRFA APIs. The final data derived from these scripts are to be saved on the `Data/Final-data/` folder. This data have already been provided, therefore there is no need to run the load scripts if one is in a rush.
 
-This data is used as inputs to the models, found in the `Models/` folder. When the models (the .py scripts) in this folder are run, they are outputtinng the predictions on the `Results/Saved-from-run-models` folder. 
+## Stage 2: Data preprocessing and model development
 
-Also, on the same `Results` folder, there are .ipynb files using the saved predictions from the models (`Results/Saved-from-run-models/`) to produce any visuals/graphs/table info.
+The data coming from the previouss stage saved on `Data/Final-data/` is to be used as inputs to the models. All the models used can be found in the `Models/` folder (.py scripts). When the models in this folder are run, they are outputtinng the predictions on the `Results/Saved-from-run-models` folder. 
 
-Finally, on the `XAI/` folder, the .py script for the KernelSHAP explainability method is being provided.
+## Stage 3: Results
+
+On the `Results` folder, the .ipynb files using the saved predictions from the models (on `Results/Saved-from-run-models/`) are to used produce any visuals/graphs/table info.
+
+## Stage 4: Explainability
+
+Finally, on the `XAI/` folder, the .py script for the KernelSHAP explainability method that can be used in the same models is being provided.
 
