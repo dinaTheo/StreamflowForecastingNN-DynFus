@@ -33,13 +33,13 @@ The **Data** folder contains the `.py` scripts that load and prepare the ERA5-La
 
 ## Stage 2: Data preprocessing and model development
 
-The data coming from the previous stage saved on **Data/Final-data/** is to be used as inputs to the models. All the models used can be found in the **Models/** folder (`.py` scripts). When the models in this folder are run, they are outputting the predictions on the **Results/Saved-from-run-models** folder. 
+The data coming from the previous stage saved on **Data/Final-data/** is to be used as inputs to the models. All the models can be found on the **Models/** folder (`.py` scripts). When the models are run, they are outputting their corresponding predictions on the **Results/Saved-from-run-models** folder. 
 
 ## Stage 3: Results
 
-On the **Results** folder, the `.ipynb` files using the saved predictions from the models (on **Results/Saved-from-run-models/**) are to used produce any visuals/graphs/table info.
+On the **Results** folder, the `.ipynb` files use the saved predictions from the models (on **Results/Saved-from-run-models/**) to produce any visuals/graphs/table info.
 
 ## Stage 4: Explainability
 
-Finally, on the **XAI/** folder, the `.py` script for the KernelSHAP explainability method that can be used in the same models is being provided.
+Finally, on the **XAI/** folder, the `.py` script for the KernelSHAP explainability method used to the save models is being provided.
 
