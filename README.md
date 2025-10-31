@@ -71,7 +71,7 @@ To run a model using Docker:
 The model outputs are saved in `Results/Saved-from-run-models/`.
 
 ## Stage 3: Results
-The `Results/` folder contains Jupyter notebooks that analyze model predictions. These notebooks use the saved outputs from `Results/Saved-from-run-models/` to generate visualizations, graphs, and tables.
+The `Results/` folder contains the Jupyter notebooks that analyse model predictions. These notebooks use the saved outputs from `Results/Saved-from-run-models/` to generate visualizations, graphs, and tables.
 
 ## Stage 4: Explainability
 
