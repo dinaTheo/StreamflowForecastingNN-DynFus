@@ -1,8 +1,6 @@
 # StreamflowForecastingNN-DynFus
 
-LSTM-based **dynamic feature fusion models** for streamflow forecasting using ERA5-Land and river flow data.
-
----
+This is the repository with the LSTM-based **dynamic feature fusion models** for streamflow forecasting using ERA5-Land climatic and river flow measurement data.
 
 ## Project Structure
 ```
@@ -32,7 +30,6 @@ LSTM-based **dynamic feature fusion models** for streamflow forecasting using ER
 └── LICENSE
 ```
 
----
 
 ## Stage 1: Data Loading & Preparation
 
@@ -40,9 +37,7 @@ The `Data/` folder contains scripts to:
 
 - Load ERA5-Land data
 - Retrieve river flow measurements from DEFRA/NRFA APIs
-Processed data is saved in `Data/Final-data/`. These files are already included, but you can regenerate them by running the scripts (after installing the required Python libraries).
-
----
+The processed data is saved in `Data/Final-data/`. These files are already included, but you can regenerate them by running the scripts (after installing the required Python libraries).
 
 ## Stage 2: Preprocessing & Model Development
 
@@ -73,14 +68,10 @@ To run a model using Docker:
    python3 encdec_dyn1_fus_mul.py
    ```
 
-Model outputs are saved in `Results/Saved-from-run-models/`.
-
----
+The model outputs are saved in `Results/Saved-from-run-models/`.
 
 ## Stage 3: Results Analysis
 The `Results/` folder contains Jupyter notebooks that analyze model predictions. These notebooks use the saved outputs from `Results/Saved-from-run-models/` to generate visualizations, graphs, and tables.
-
----
 
 ## Stage 4: Explainability
 
