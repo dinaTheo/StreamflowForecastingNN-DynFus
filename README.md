@@ -1,6 +1,6 @@
 # StreamflowForecastingNN-DynFus
 
-This is the repository with the LSTM-based **dynamic feature fusion models** for streamflow forecasting using ERA5-Land climatic and river flow measurement data.
+This is the repository with the LSTM-based **dynamic feature fusion models** for high-flow forecasting using ERA5-Land climatic and river flow measurement data.
 
 ## Project
 ```
