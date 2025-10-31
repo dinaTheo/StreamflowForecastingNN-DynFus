@@ -1,0 +1,14 @@
+tensorflow
+keras
+pandas
+matplotlib
+scikit-learn
+numpy
+pyarrow
+seaborn
+hydroeval
+shap
+xarray
+scipy
+tensorflow-addons
+statsmodels

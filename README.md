@@ -12,17 +12,19 @@ The project follows this structure:
 │   ├── era-pack.py
 │   └── river-flow-defra-get.py
 ├── Models
+│   │── XAI
 │   ├── encdec_dyn1_fus_mul.py
 │   ├── encdec_dyn1_fus_un.py
 │   ├── encdec_dyn_fus_mul.py
-│   └── encdec_dyn_fus_un.py
+│   ├── encdec_dyn_fus_un.py
+│   ├── requirements.txt
+│   └── .Dockerfile
+│   
 ├── Results
 │   ├── Saved-from-run-models
 │   ├── mul-vs-un-results-analysis.ipynb
 │   ├── multivariate-results-analysis.ipynb
 │   └── univariate-results-analysis.ipynb
-│── XAI
-│  └── kernelshap_val_mul.py
 ├── README.md
 ├── LICENSE
 ```
@@ -41,5 +43,5 @@ On the **Results** folder, the `.ipynb` files use the saved predictions from the
 
 ## Stage 4: Explainability
 
-Finally, on the **XAI/** folder, the `.py` script for the KernelSHAP explainability method used to the save models is being provided.
+Finally, on the **Models/XAI/** folder, the `.py` script for the KernelSHAP explainability method is being provided.
 

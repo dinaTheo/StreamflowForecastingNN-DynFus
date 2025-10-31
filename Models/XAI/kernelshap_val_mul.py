@@ -125,7 +125,7 @@ inputs_test_list = np.concatenate([
 full_feature_names = [f"{name}_timestep_{t}" for t in range(1, 31) for name in numerical_columns]
 
 for model_name in ["encdec-mul-dyn1-fusion", "encdec-mul-dyn-fusion"]:
-    model = load_model(f'Results/Saved-from-run-models/{model_name}.h5')
+    model = load_model(f'../Results/Saved-from-run-models/{model_name}.h5')
 
     def model_predict_wrapper(inputs_test_list):
         num_samples = inputs_test_list.shape[0]
@@ -165,7 +165,7 @@ for model_name in ["encdec-mul-dyn1-fusion", "encdec-mul-dyn-fusion"]:
     plt.xticks(fontsize=18, rotation=45)
     plt.yticks(fontsize=18)
     plt.tight_layout()
-    plt.savefig(f'Results/Saved-from-run-models/shap-importance-per-feature-{model_name}.png', dpi=300)
+    plt.savefig(f'../Results/Saved-from-run-models/shap-importance-per-feature-{model_name}.png', dpi=300)
     plt.close()
     plt.clf()
 
@@ -178,7 +178,7 @@ for model_name in ["encdec-mul-dyn1-fusion", "encdec-mul-dyn-fusion"]:
     plt.xticks(fontsize=18)
     plt.yticks(fontsize=18)
     plt.tight_layout()
-    plt.savefig(f'Results/Saved-from-run-models/shap-importance-per-timestep-{model_name}.png', dpi=300)
+    plt.savefig(f'../Results/Saved-from-run-models/shap-importance-per-timestep-{model_name}.png', dpi=300)
     plt.close()
     plt.clf()
 
