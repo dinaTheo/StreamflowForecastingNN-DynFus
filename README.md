@@ -2,7 +2,7 @@
 
 This is the repository with the LSTM-based **dynamic feature fusion models** for streamflow forecasting using ERA5-Land climatic and river flow measurement data.
 
-## Project Structure
+## Project
 ```
 .
 ├── Data
@@ -31,7 +31,7 @@ This is the repository with the LSTM-based **dynamic feature fusion models** for
 ```
 
 
-## Stage 1: Data Loading & Preparation
+## Stage 1: Data Loading & preparation
 
 The `Data/` folder contains scripts to:
 
@@ -39,11 +39,11 @@ The `Data/` folder contains scripts to:
 - Retrieve river flow measurements from DEFRA/NRFA APIs
 The processed data is saved in `Data/Final-data/`. These files are already included, but you can regenerate them by running the scripts (after installing the required Python libraries).
 
-## Stage 2: Preprocessing & Model Development
+## Stage 2: Preprocessing & Model development
 
 The models use data from `Data/Final-data/` as input. All model scripts are located in the `Models/` folder.
 
-### Running Models with Docker
+### Running models
 
 To run a model using Docker:
 
@@ -70,7 +70,7 @@ To run a model using Docker:
 
 The model outputs are saved in `Results/Saved-from-run-models/`.
 
-## Stage 3: Results Analysis
+## Stage 3: Results
 The `Results/` folder contains Jupyter notebooks that analyze model predictions. These notebooks use the saved outputs from `Results/Saved-from-run-models/` to generate visualizations, graphs, and tables.
 
 ## Stage 4: Explainability
