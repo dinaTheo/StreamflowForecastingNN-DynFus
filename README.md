@@ -1,47 +1,93 @@
 # StreamflowForecastingNN-DynFus
 
-## Introduction
-This is the repository with the code for the LSTM-based dynamic feature fusion models for streamflow forecasting.
+LSTM-based **dynamic feature fusion models** for streamflow forecasting using ERA5-Land and river flow data.
 
-The project follows this structure:
+---
 
-```.
+## Project Structure
+```
+.
 ├── Data
-│   ├── Final-data
+│   ├── Final-data/
 │   ├── era-land-load.py
 │   ├── era-pack.py
 │   └── river-flow-defra-get.py
+│
 ├── Models
-│   │── XAI
+│   ├── XAI/
 │   ├── encdec_dyn1_fus_mul.py
 │   ├── encdec_dyn1_fus_un.py
 │   ├── encdec_dyn_fus_mul.py
 │   ├── encdec_dyn_fus_un.py
 │   ├── requirements.txt
 │   └── .Dockerfile
-│   
+│
 ├── Results
-│   ├── Saved-from-run-models
+│   ├── Saved-from-run-models/
 │   ├── mul-vs-un-results-analysis.ipynb
 │   ├── multivariate-results-analysis.ipynb
 │   └── univariate-results-analysis.ipynb
+│
 ├── README.md
-├── LICENSE
+└── LICENSE
 ```
 
-## Stage 1: Data loading and preparing
+---
 
-The **Data** folder contains the `.py` scripts that load and prepare the ERA5-Land Data and the river flow measurements from DEFRA/NRFA APIs. The final data derived from these scripts are to be saved on the **Data/Final-data/** folder. This data have already been provided.
+## Stage 1: Data Loading & Preparation
 
-## Stage 2: Data preprocessing and model development
+The `Data/` folder contains scripts to:
 
-The data coming from the previous stage saved on **Data/Final-data/** is to be used as inputs to the models. All the models can be found on the **Models/** folder (`.py` scripts). When the models are run, they are outputting their corresponding predictions on the **Results/Saved-from-run-models** folder. 
+- Load ERA5-Land data
+- Retrieve river flow measurements from DEFRA/NRFA APIs
+Processed data is saved in `Data/Final-data/`. These files are already included, but you can regenerate them by running the scripts (after installing the required Python libraries).
 
-## Stage 3: Results
+---
 
-On the **Results** folder, the `.ipynb` files use the saved predictions from the models (on **Results/Saved-from-run-models/**) to produce any visuals/graphs/table info.
+## Stage 2: Preprocessing & Model Development
+
+The models use data from `Data/Final-data/` as input. All model scripts are located in the `Models/` folder.
+
+### Running Models with Docker
+
+To run a model using Docker:
+
+1. Clone the repository and open it in your IDE.
+2. Navigate to the `Models/` folder:
+   ```bash
+   cd Models
+   ```
+3. Build the Docker image:
+   ```bash
+   docker build -t <IMAGE_NAME> .
+   ```
+4. Run the container interactively:
+   ```bash
+   docker run --gpus device=0 \
+     -v "$(pwd)/../Data":/app/../Data \
+     -v "$(pwd)/../Results":/app/../Results \
+     -it <IMAGE_NAME> bash
+   ```
+5. Inside the container, run a model:
+   ```bash
+   python3 encdec_dyn1_fus_mul.py
+   ```
+
+Model outputs are saved in `Results/Saved-from-run-models/`.
+
+---
+
+## Stage 3: Results Analysis
+The `Results/` folder contains Jupyter notebooks that analyze model predictions. These notebooks use the saved outputs from `Results/Saved-from-run-models/` to generate visualizations, graphs, and tables.
+
+---
 
 ## Stage 4: Explainability
 
-Finally, on the **Models/XAI/** folder, the `.py` script for the KernelSHAP explainability method is being provided.
+The `Models/XAI/` folder includes a script for **KernelSHAP** explainability. To run it:
+
+```bash
+python3 XAI/kernelshap_val_mul.py
+```
+
 
